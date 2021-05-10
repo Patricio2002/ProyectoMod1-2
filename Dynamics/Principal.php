@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $_SESSION['']= "seción";
+    $_SESSION['secion']= "seción";
     echo '
     <table bgcolor=lightblue>
     <thead></thead>
@@ -14,7 +14,8 @@
                 <td><form action="./CrearCuenta.php" method=post></td>
                     <td><input type=submit name=registro value=REGISTRO></td>
                 </form>
-               <td><input type=submit name=coleccion value=SECCIONES></td>
+                <td><form action="./Busca.php" method=post></td>
+               <td><input type=submit name=coleccion value=Buscar></td>
             </tr>
         </tbody>
     </table>
