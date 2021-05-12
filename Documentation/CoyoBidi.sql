@@ -233,7 +233,7 @@ CREATE TABLE `nombre` (
 
 LOCK TABLES `nombre` WRITE;
 /*!40000 ALTER TABLE `nombre` DISABLE KEYS */;
-INSERT INTO `nombre` VALUES ('320051665','Patricio','Alfaro Domínguez');
+INSERT INTO `nombre` VALUES ('','',''),('320011106','Jorge ','Montes Cruz'),('320045316','Benjamin','Mastachi Pineda'),('320051665','Patricio','Alfaro Domínguez'),('320113561','Dario ','Serna Gutierrez'),('320232581','Magdalena Isabel','Flores de la Garza'),('320237964','Sabino Narciso','Salgado Rodriguez'),('320256516','Maria Antonieta','Aguario Carranza'),('320262652','Jose Rodrigo','Martinez Garcia'),('320278901','Aurora','Lopez Maldonado'),('320492394','Diana Alejandra','Villarreal Garcia'),('ENRR971212','Ricardo ','Encina Rodriguez'),('LAPV880815','Victor Hugo','Lara Pineda'),('LOFC900908','Carmen Isabela','Lopez Fernandez'),('SASV951111','Victor Manuel','Saucedo Salgado');
 /*!40000 ALTER TABLE `nombre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,7 +336,7 @@ CREATE TABLE `usuario` (
   KEY `id_tipoUsuario` (`id_tipoUsuario`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_tipoUsuario`) REFERENCES `tipousuario` (`id_tipoUsuario`),
   CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`NoCuenta_RFC`) REFERENCES `nombre` (`NoCuenta_RFC`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -345,7 +345,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (15,'320051665','2021-05-07','patricio.ad26301@gmail.com','JRRTolkien1*',1);
+INSERT INTO `usuario` VALUES (15,'320051665','2021-05-07','patricio.ad26301@gmail.com','JRRTolkien1*',1),(17,'320256516','2002-11-27','mariadb@hotmail.com','MariaBonitaMariadelAlma',1),(18,'320011106','2004-05-03','jorgemocruz@outlook.com','Xanti19salchihc',1),(20,'320113561','2003-06-04','dariux04@hotmail.com','320113561',1),(21,'320045316','2004-08-16','mastachibenja@live.com.mx','STILLLOVINGYOU',1),(22,'320278901','2003-07-17','unicorniodeaurora@hotmail.com','Amuco27',1),(23,'320492394','2004-02-26','diana26alejandra@hotmail.com','Amando27',1),(24,'320262652','2003-05-05','ingerodrigo05@outlook.com','12345',1),(25,'320232581','2002-05-19','chabelaflores@hotmail.com','54321',1),(26,'320237964','2003-06-06','sabi0603@outlook.com','Talaybaly2004',1),(27,'LOFC900908','1990-09-08','carmelitaisabela@hotmail.com','Margarita25',2),(28,'SASV951111','1995-11-11','blackvictor@hotmail.com','SABNIN5',2),(29,'ENRR971212','1997-12-12','richieelpicchi97@hotmail.com','Sofiamiamor25',2),(30,'LAPV880815','1988-08-15','hugolara98@hotmail.com','Elkaratemipasion2896',3);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -358,4 +358,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-12 14:28:06
+-- Dump completed on 2021-05-12 15:25:41
