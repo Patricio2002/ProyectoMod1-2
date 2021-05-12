@@ -5,7 +5,7 @@
     define("DB","coyobidi");
 
     function connectdb (){
-        $con=mysqli_connect(DBHOST, DBUSER, PASSWORD, DB);
+        $con=mysqli_connect('localhost', root, coyobidi);
         if(!$con){
             echo "no se pudo acceder a la base de datos";
         }
