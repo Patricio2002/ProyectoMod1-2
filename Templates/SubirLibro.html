@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Subir libro</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend><h3>Datos del libro</h3></legend>
+                <form action="../Dynamics/SubirLibro.php" method="POST" enctype="multipart/form-data">
+                    Nombre: <input type="text" name="titulo" required>
+                    <br><br>
+                    Autor: <input type="text" name="autor" max="50" value="Anonimo">
+                    <br><br>
+                    Editorial: <input type="text" name="editorial" required>
+                    <br><br>
+                    Edicion: <input type="number" name="edicion" value="1">
+                    <br><br>
+                    Año de publicación: <input type="number" name="año" required>
+                    <br><br>
+                    Género(s): <input type="text" name="género" required>
+                    <br><br>
+                    Categoría: <select name="categoria">
+                        <option value="1">Libro de Texto</option>
+                        <option value="2">Examen</option>
+                        <option value="3">Dicionario</option>
+                        <option value="4">Enciclopedia</option>
+                        <option value="5">Revista</option>
+                        <option value="6">Obra literaria</option>
+                    </select>
+                    <br><br>
+                    Contenido apto para menores de edad: <select name="m18">
+                        <option value="1">SI</option>
+                        <option value="2">NO</option>
+                    </select>
+                    <br><br>
+                    <textarea name="descripcion" cols="30" rows="10" required>añada una breve descripcion del libro</textarea>
+                    <br><br>
+                    Portada: <input type="file" name="portada">
+                    <br><br>
+                    Libro en PDF: <input type="file" name="libro" required>
+                    <br><br>
+                    <input type="submit" name="subir" value="Subir">
+                </form>
+        </fieldset>
+    </body>
+</html>

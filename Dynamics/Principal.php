@@ -24,6 +24,14 @@
         </tbody>
     </table>
     <br>';
+    ?>
+    <br>
+    <form action="resultados.php">
+        Buscar libro: <input type="text" name="titulo" placeholder="ingrese titulo">;
+        <br><br>
+        <input type="submit">
+    </form>
+    <?php
     //arreglo para desplegar aleatoriamente un libro
     $imagenes=["1"=>"<img src= '../Statics/L1.jpg' width= 400>",
                "2"=>"<img src= '../Statics/L2.jpg' width= 400>",

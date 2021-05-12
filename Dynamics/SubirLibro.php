@@ -1,56 +1,41 @@
 <?php
-    echo '
-    <!DOCTYPE html>
-    <html lang="es" dir="ltr">
-        <head>
-            <meta charset="utf-8">
-            <title>Subir libro</title>
-        </head>
-        <body>
-            <fieldset>
-                <legend><h3>Datos del libro</h3></legend>
-                <form action="./SubirLibro.php" method=post></td>
-                    Título: <input type="text" name="titulo" required>
-                    <br><br>
-                    Autor: <input type="text" name="autor" required>
-                    <br><br>
-                    Editorial: <input type="text" name="editorial" required>
-                    <br><br>
-                    Año de publicación: <input type="number" name="anio" required>
-                    <br><br>
-                    Género(s): <input type="text" name="genero" required>
-                    <br><br>
-                    Ingrese una imágen: <input type="file" name="imagen" required>
-                    <input type="submit" value="Subir" required>
-                    <input type="reset" value="Borrar">
-                </form>
-            </fieldset>
-        </body>
-    </html><br>';
-
-    $t=(isset($_POST["titulo"]) && $_POST["titulo"]!= "") ?$_POST["titulo"]: "Inválido";
-    $a=(isset($_POST["autor"]) && $_POST["autor"]!= "") ?$_POST["autor"]: "Inválido";
-    $e=(isset($_POST["editoral"]) && $_POST["editorial"]!= "") ?$_POST["editorial"]: "Inválido";
-    $an=(isset($_POST["anio"]) && $_POST["anio"]!= "") ?$_POST["anio"]: "Inválido";
-    $g=(isset($_POST["genero"]) && $_POST["genero"]!= "") ?$_POST["genero"]: "Inválido";
-    $i=(isset($_FILES['imagen'])&& $_FILES['imagen']!= "") ?$_FILES['imagen']: "Inválido";
-    if($i!= "Inválido")
-    {
-        if(pathinfo($_FILES['imagen']['name'], PATHINFO_EXTENSION)== 'jpg' ||pathinfo($_FILES['pintura']['name'], PATHINFO_EXTENSION)== 'png')
-        {
-            $exten=pathinfo($_FILES['pintura']['name'], PATHINFO_EXTENSION);
-            $imagen= $_FILES['pintura']['tmp_name'];
+     include("./Config.php");
+     $conexion=connectdb();
+     //revisa que se haya enviado algo
+    if(isset($_FILES["libro"])){
+        //extrae su nombre y direccion 
+        $name=$_FILES['libro']['name'];
+        $arch=$_FILES['libro']['tmp_name'];
+        //separa el nombre del libro de la extensión a través del punto
+        $rev=explode(".", $name);
+        //verifica que hayan subido imagen de portada
+        if(isset($_FILES["portada"])){
+            $name2=$_FILES['portada']['name'];
+            $arch2=$_FILES['portada']['tmp_name'];
+            $rev2=explode(".", $name2);  
         }
-        else
-        {   
+        //verifca que el libro sea PDF
+        if($rev[1]=="pdf"){
+            //lo cambia a la carpeta donde se guardarán los libros
+            move_uploaded_file($arch, "../libro/$name");
+            // revisa que la imagen sea pdf
+            if($rev2=='jpg'||$rev2=='png'||$rev2=='jpeg'){
+                move_uploaded_file($arch2, "../statics/$name");
+                //sube a base de datos conimagen
+                $libro="INSERT INTO libro (titulo, Img_libro, autor, anio, edicion, editorial, categoria, descripcion, libro, mayor18) VALUES ('$_POST[titulo]','../statics/$name', '$_POST[autor]', '$_POST[año]', '$_POST[edicion]', '$_POST[editorial]', '$_POST[categoria]', '$_POST[descripcion]', '../libro/$name', '$_POST[m18]');";
+                $res2=mysqli_query($conexion, $libro);
+            }
+            else{
+                //sube a base de datos sin imagen
+                $libro="INSERT INTO libro (titulo, autor, anio, edicion, editorial, categoria, descripcion, libro, mayor18) VALUES ('$_POST[titulo]', '$_POST[autor]', '$_POST[año]', '$_POST[edicion]', '$_POST[editorial]', '$_POST[categoria]', '$_POST[descripcion]', '../libro/$name', '$_POST[m18]');";
+                $res=mysqli_query($conexion, $libro);
 
-            $invalido= basename($_FILES['imagen']['name']);
-            echo "<h1>El archivo $invalido no es válido</h1>";
-            echo '<input type="reset" value="Borrar">';
+            }
+            header("location: ./Principal");
         }
+
     }
-    if($t!= "Inválido")
-    {
-       
+    else{
+        header("location: ../Templates/SubirLibro.php");
     }
 ?>
