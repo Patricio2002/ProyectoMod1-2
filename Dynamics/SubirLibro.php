@@ -1,5 +1,6 @@
 <?php
      include("./Config.php");
+     $array=array();
      $conexion=connectdb();
      //revisa que se haya enviado algo
     if(isset($_FILES["libro"])){
@@ -13,6 +14,45 @@
             $name2=$_FILES['portada']['name'];
             $arch2=$_FILES['portada']['tmp_name'];
             $rev2=explode(".", $name2);  
+        }
+        if(isset($_POST["g1"])){
+            array_push($array, $_POST["g1"]);
+        }
+        if(isset($_POST["g2"])){
+            array_push($array, $_POST["g2"]);
+        }
+        if(isset($_POST["g3"])){
+            array_push($array, $_POST["g3"]);
+        }
+        if(isset($_POST["g4"])){
+            array_push($array, $_POST["g4"]);
+        }
+        if(isset($_POST["g5"])){
+            array_push($array, $_POST["g5"]);
+        }
+        if(isset($_POST["g6"])){
+            array_push($array, $_POST["g6"]);
+        }
+        if(isset($_POST["g7"])){
+            array_push($array, $_POST["g7"]);
+        }
+        if(isset($_POST["g8"])){
+            array_push($array, $_POST["g8"]);
+        }
+        if(isset($_POST["g9"])){
+            array_push($array, $_POST["g9"]);
+        }
+        if(isset($_POST["g10"])){
+            array_push($array, $_POST["g0"]);
+        }
+        if(isset($_POST["g11"])){
+            array_push($array, $_POST["g11"]);
+        }
+        if(isset($_POST["g12"])){
+            array_push($array, $_POST["g12"]);
+        }
+        if(isset($_POST["g13"])){
+            array_push($array, $_POST["g13"]);
         }
         //verifca que el libro sea PDF
         if($rev[1]=="pdf"){
@@ -31,11 +71,23 @@
                 $res=mysqli_query($conexion, $libro);
 
             }
-            header("location: ./Principal");
+            //saca el id del libro que se ha subido
+            $idlibro="SELECT id_libro FROM libro WHERE libro LIKE('../libro/$name');";
+            $res4=mysqli_query($conexion, $idlibro);
+            lo ingresa al arreglo
+            $row=mysqli_fetch_array($res4);
+            // asigna el valor a de genero e id_libro a la tabla librohas genero
+            for ($i=0; $i < count($array); $i++) { 
+                $genero="INSERT INTO librohasgenero (id_libro, id_genero) VALUES('$row[0]', '$array[$i]');";
+                $res3=mysqli_query($conexion, $genero);
+                echo $genero;
+                echo "<br>";
+            }   
+            header("location: ./Principal.php");
         }
 
     }
     else{
-        header("location: ../Templates/SubirLibro.php");
+        header("location: ../Templates/SubirLibro.html");
     }
 ?>
