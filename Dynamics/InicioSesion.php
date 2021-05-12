@@ -1,8 +1,19 @@
 <?php
+    include("./Config.php");
+    $conexion=connectdb();
     session_name("Coyo bidi");
     session_start();
     if(isset($_SESSION["inicio"])){
         header("location: Principal.php");
+    }
+    elseif(isset($_POST["InicioSesion"])){
+        $IniSes="SELECT * FROM usuario WHERE correo LIKE('$_POST[correo]') AND contraseña LIKE('$_POST[contraseña]');";
+        $rev=mysqli_query($conexion, $IniSes);
+        $cont= mysqli_num_rows($rev);
+        if($cont==1){
+            header("location: ./principal.php");
+        }
+        
     }
     else{
         echo '   
@@ -17,7 +28,7 @@
             <body>
                 <fieldset style="width:600px">
                 <legend>INICIO DE SESION</legend>
-                    <form action="Principal.php">
+                    <form action="./InicioSesion.php" method="POST">
                         <table>
                             <thead>
                                 <th><h1>¡¡BIENVENIDO A COYO BIDI!! INICIE SESION PARA CONTINUAR</h1></th>                          
@@ -25,12 +36,12 @@
                             <tbody>
                                 <tr>
                                     <label>
-                                        <td>Usuario: <input type="text" name="nombre" required></td>
+                                        <td>Correo: <input type="email" name="correo" required></td>
                                     </label> 
                                 </tr>
                                 <tr>
                                     <label>
-                                        <td>Contraseña: <input type="password" name="contraseña required"></td> 
+                                        <td>Contraseña: <input type="password" name="contraseña" required></td> 
                                     </label> 
                                 </tr>
                                 <tr>
@@ -40,7 +51,7 @@
                                     <td>¿Todavía no tiene cuenta? Cree una aquí</td> 
                                 </tr>
                                 <tr>
-                                    <td><a href="./CrearCuenta.php"> Crear cuenta</a></td>
+                                    <td><a href="../Templates/CrearCuenta.html"> Crear cuenta</a></td>
                                 </tr>
                             </tbody>
                         </table>
