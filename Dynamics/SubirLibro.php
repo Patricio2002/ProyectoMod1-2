@@ -74,14 +74,12 @@
             //saca el id del libro que se ha subido
             $idlibro="SELECT id_libro FROM libro WHERE libro LIKE('../libro/$name');";
             $res4=mysqli_query($conexion, $idlibro);
-            lo ingresa al arreglo
+            //lo ingresa al arreglo
             $row=mysqli_fetch_array($res4);
             // asigna el valor a de genero e id_libro a la tabla librohas genero
             for ($i=0; $i < count($array); $i++) { 
                 $genero="INSERT INTO librohasgenero (id_libro, id_genero) VALUES('$row[0]', '$array[$i]');";
                 $res3=mysqli_query($conexion, $genero);
-                echo $genero;
-                echo "<br>";
             }   
             header("location: ./Principal.php");
         }
