@@ -16,6 +16,10 @@
                     <td><input type=submit name=registro value=REGISTRO></td>
                 </form>
                 <td><img src= "../Statics/lupa.png" width= 20 height= 20></td>
+                <td><form action="./Busca.php" method=post></td>
+                    <td><input type=search name=buscador</td>
+                    <td><input type=submit name=busca value=VER></td>
+                    </form>
             </tr>
         </tbody>
     </table>
