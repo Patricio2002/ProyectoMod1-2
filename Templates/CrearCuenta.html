@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+            <html lang=en>
+          | <head>
+            <meta charset=UTF-8>
+                <meta http-equiv=X-UA-Compatible content=IE=edge>
+                <meta name=viewport content=width=device-width, initial-scale=1.0>
+                <title>Crear cuenta</title>
+            </head>
+            <body>
+                <fieldset style=width:400px>
+                <legend>Crear cuenta</legend>
+                    <form action=../Dynamics/CrearCuenta.php method=POST>
+                        Nombre:<input type=text name='nombre' required>
+                        <br><br>
+                        Apellidos:<input type=text name='apellidos' required>
+                        <br><br>
+                        Fecha de nacimiento:<input type=date name='fecha' required>
+                        <br><br>
+                        correo electronico:<input type=email name='correo' required>
+                        <br><br>
+                        RFC o número de cuenta:<input type=text name='RFC' required>         
+                        <br><br> 
+                         Contraseña:<input type=password name='contraseña' required>
+                        <br>
+                        <br>
+                    Seleccione su cuenta
+                        <select name=tipo>
+                            <option value=1>Lector</option>
+                            <option value=2>Bibliotecario</option>
+                            <option value=3>Administrador</option>
+                        </select>
+                        <br>
+                        <br>
+                        <input type=submit name='Crear' value="Crear cuenta">
+                        <br><br>
+                        ¿Ya tienes cuenta? <a href="../Dynamics/InicioSesion.php"> Inicia sesion</a>
+                    </form>
+            </fieldset>
+            </body>
+            </html>

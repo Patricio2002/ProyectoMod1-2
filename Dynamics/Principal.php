@@ -1,13 +1,5 @@
 <?php
     session_start();
-<<<<<<< HEAD
-    $_SESSION['secion']= "seción";
-    echo '
-=======
-    if(isset($_POST["Crear"]))
-    {
-        $_SESSION["inicio"]=1;
-    }
     echo '<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -17,24 +9,10 @@
         <title>Coyo bidi</title>
     </head>
     <body>
->>>>>>> 41c4efd12c1baf12600aac1fd573ff2df2967896
     <table bgcolor=lightblue>
     <thead></thead>
         <tbody>
             <tr>
-<<<<<<< HEAD
-                <td><img src= "../Statics/Logo.png" width= 100 height= 100></td>
-                <td></td>
-                <td><form action="./InicioSesion.php" method=post></td>
-                    <td><input type=submit name=inicio value="INICIAR SESIÓN"></td>
-                </form>
-                <td><form action="./CrearCuenta.php" method=post></td>
-                    <td><input type=submit name=registro value=REGISTRO></td>
-                </form>
-                <td><form action="./Busca.php" method=post></td>
-               <td><input type=submit name=coleccion value=Buscar></td>
-            </tr>
-=======
                 <td><img src= "../Statics/Logo.png" width= 100 height= 100></td>';
                 echo "<td></td>";
                 if(isset($_SESSION["inicio"])){ 
@@ -46,16 +24,9 @@
                     
                 }
                 else{
-                    echo '<td><form action="./InicioSesion.php" method=post></td>
-                        <td><input type=submit name=inicio value="INICIAR SESIÓN"></td>
-                    </form>
-                    <td><form action="./CrearCuenta.php" method=post></td>
-                        <td><input type=submit name=registro value=REGISTRO></td>
-                    </form>
-                    <td><input type=submit name=coleccion value=SECCIONES></td>';
+                    header("location: InicioSesion.php");
                 }
             echo '</tr>
->>>>>>> 41c4efd12c1baf12600aac1fd573ff2df2967896
         </tbody>
     </table>
     <br>';
