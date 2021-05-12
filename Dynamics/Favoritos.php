@@ -32,8 +32,8 @@
         $conexion=connectdb();
         $fav="SELECT * FROM libro LEFT JOIN favorito ON libro.id_libro=favorito.id_libro;";
         $checa=mysqli_query($conexion, $fav);
-        $arreglo= mysqli_fetch_array($checa, resulttype: MYSQLI_NUM);
-        while($arreglo= mysqli_fetch_array($checa)
+        $arreglo= mysqli_fetch_array($checa);
+        while($arreglo= mysqli_fetch_array($checa))
         {
             echo "<table border='1'>
                     <tbody>
