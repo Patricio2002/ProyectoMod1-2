@@ -233,6 +233,7 @@ CREATE TABLE `nombre` (
 
 LOCK TABLES `nombre` WRITE;
 /*!40000 ALTER TABLE `nombre` DISABLE KEYS */;
+INSERT INTO `nombre` VALUES ('320051665','Patricio','Alfaro Domínguez');
 /*!40000 ALTER TABLE `nombre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -335,7 +336,7 @@ CREATE TABLE `usuario` (
   KEY `id_tipoUsuario` (`id_tipoUsuario`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_tipoUsuario`) REFERENCES `tipousuario` (`id_tipoUsuario`),
   CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`NoCuenta_RFC`) REFERENCES `nombre` (`NoCuenta_RFC`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -344,6 +345,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (15,'320051665','2021-05-07','patricio.ad26301@gmail.com','JRRTolkien1*',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -356,4 +358,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-12 13:12:19
+-- Dump completed on 2021-05-12 14:28:06
