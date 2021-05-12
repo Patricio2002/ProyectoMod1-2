@@ -40,6 +40,34 @@ LOCK TABLES `categoria` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `favorito`
+--
+
+DROP TABLE IF EXISTS `favorito`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `favorito` (
+  `id_favorito` tinyint(4) NOT NULL AUTO_INCREMENT,
+  `NoCuenta_RFC` varchar(10) NOT NULL,
+  `id_libro` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id_favorito`),
+  KEY `NoCuenta_RFC` (`NoCuenta_RFC`),
+  KEY `id_libro` (`id_libro`),
+  CONSTRAINT `favorito_ibfk_1` FOREIGN KEY (`NoCuenta_RFC`) REFERENCES `nombre` (`NoCuenta_RFC`),
+  CONSTRAINT `favorito_ibfk_2` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `favorito`
+--
+
+LOCK TABLES `favorito` WRITE;
+/*!40000 ALTER TABLE `favorito` DISABLE KEYS */;
+/*!40000 ALTER TABLE `favorito` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `genero`
 --
 
@@ -64,13 +92,13 @@ LOCK TABLES `genero` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `histdescargas`
+-- Table structure for table `histdescarga`
 --
 
-DROP TABLE IF EXISTS `histdescargas`;
+DROP TABLE IF EXISTS `histdescarga`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `histdescargas` (
+CREATE TABLE `histdescarga` (
   `id_descarga` tinyint(4) NOT NULL AUTO_INCREMENT,
   `id_libro` tinyint(4) DEFAULT NULL,
   `id_usuario` tinyint(4) DEFAULT NULL,
@@ -78,18 +106,18 @@ CREATE TABLE `histdescargas` (
   PRIMARY KEY (`id_descarga`),
   KEY `id_libro` (`id_libro`),
   KEY `id_usuario` (`id_usuario`),
-  CONSTRAINT `histdescargas_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`),
-  CONSTRAINT `histdescargas_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
+  CONSTRAINT `histdescarga_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`),
+  CONSTRAINT `histdescarga_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `histdescargas`
+-- Dumping data for table `histdescarga`
 --
 
-LOCK TABLES `histdescargas` WRITE;
-/*!40000 ALTER TABLE `histdescargas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `histdescargas` ENABLE KEYS */;
+LOCK TABLES `histdescarga` WRITE;
+/*!40000 ALTER TABLE `histdescarga` DISABLE KEYS */;
+/*!40000 ALTER TABLE `histdescarga` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -168,7 +196,7 @@ CREATE TABLE `librohasreporte` (
   KEY `id_libro` (`id_libro`),
   KEY `id_reporte` (`id_reporte`),
   CONSTRAINT `librohasreporte_ibfk_1` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`),
-  CONSTRAINT `librohasreporte_ibfk_2` FOREIGN KEY (`id_reporte`) REFERENCES `reportes` (`id_reporte`)
+  CONSTRAINT `librohasreporte_ibfk_2` FOREIGN KEY (`id_reporte`) REFERENCES `reporte` (`id_reporte`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -202,17 +230,18 @@ CREATE TABLE `nombre` (
 
 LOCK TABLES `nombre` WRITE;
 /*!40000 ALTER TABLE `nombre` DISABLE KEYS */;
+INSERT INTO `nombre` VALUES ('320051665','Patricio','Alfaro Domínguez');
 /*!40000 ALTER TABLE `nombre` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `reportes`
+-- Table structure for table `reporte`
 --
 
-DROP TABLE IF EXISTS `reportes`;
+DROP TABLE IF EXISTS `reporte`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `reportes` (
+CREATE TABLE `reporte` (
   `id_reporte` tinyint(4) NOT NULL AUTO_INCREMENT,
   `causa` tinyint(4) DEFAULT NULL,
   PRIMARY KEY (`id_reporte`)
@@ -220,22 +249,22 @@ CREATE TABLE `reportes` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `reportes`
+-- Dumping data for table `reporte`
 --
 
-LOCK TABLES `reportes` WRITE;
-/*!40000 ALTER TABLE `reportes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `reportes` ENABLE KEYS */;
+LOCK TABLES `reporte` WRITE;
+/*!40000 ALTER TABLE `reporte` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reporte` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `solicitudes`
+-- Table structure for table `solicitud`
 --
 
-DROP TABLE IF EXISTS `solicitudes`;
+DROP TABLE IF EXISTS `solicitud`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `solicitudes` (
+CREATE TABLE `solicitud` (
   `id_solicitud` tinyint(4) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(50) DEFAULT NULL,
   `autor` varchar(50) DEFAULT NULL,
@@ -246,18 +275,18 @@ CREATE TABLE `solicitudes` (
   PRIMARY KEY (`id_solicitud`),
   KEY `id_genero` (`id_genero`),
   KEY `id_usuario` (`id_usuario`),
-  CONSTRAINT `solicitudes_ibfk_1` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`),
-  CONSTRAINT `solicitudes_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
+  CONSTRAINT `solicitud_ibfk_1` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`),
+  CONSTRAINT `solicitud_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `solicitudes`
+-- Dumping data for table `solicitud`
 --
 
-LOCK TABLES `solicitudes` WRITE;
-/*!40000 ALTER TABLE `solicitudes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `solicitudes` ENABLE KEYS */;
+LOCK TABLES `solicitud` WRITE;
+/*!40000 ALTER TABLE `solicitud` DISABLE KEYS */;
+/*!40000 ALTER TABLE `solicitud` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -304,7 +333,7 @@ CREATE TABLE `usuario` (
   KEY `id_tipoUsuario` (`id_tipoUsuario`),
   CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`id_tipoUsuario`) REFERENCES `tipousuario` (`id_tipoUsuario`),
   CONSTRAINT `usuario_ibfk_2` FOREIGN KEY (`NoCuenta_RFC`) REFERENCES `nombre` (`NoCuenta_RFC`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -313,6 +342,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (11,'320051665','2021-05-07','patricio.ad26301@gmail.com','JRRTolkien1*',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -325,4 +355,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-11 13:36:34
+-- Dump completed on 2021-05-12  0:54:55
