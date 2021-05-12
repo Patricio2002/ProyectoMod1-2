@@ -1,7 +1,7 @@
 <?php
     session_start();
     isset($_SESSION["inicio"]);
-    //precentación de la página
+    //precentación de la página y selección de actividad
     echo '
     <table bgcolor=lightblue>
     <thead></thead>
@@ -15,9 +15,11 @@
                 <td><form action="./CrearCuenta.php" method=post></td>
                     <td><input type=submit name=registro value=REGISTRO></td>
                 </form>
+                <td><img src= "../Statics/lupa.png" width= 20 height= 20></td>
                 <td><form action="./Busca.php" method=post></td>
-               <td><input type=submit name=coleccion value=Buscar></td>
-               </from>
+                    <td><input type=search name=buscador ></td>
+                    <td><input type=submit value=VER></td>
+                </form>
             </tr>
         </tbody>
     </table>
