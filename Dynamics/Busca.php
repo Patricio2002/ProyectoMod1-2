@@ -1,5 +1,7 @@
 <?php
+    session_name("Coyo bidi");
     session_start();
+    //Lista de opciones
     echo "
     <table bgcolor=lightblue>
     <thead></thead>
@@ -15,53 +17,38 @@
                 </form>
                 <td><form action='./Principal.php' method=post></td>
                     <td><input type=submit name=vuelve value=VOLVER></td>
+                    </from>
             </tr>
         </tbody>
     </table>
     <br>";
-
-    echo "
-    <table>
-    <thead></thead>
-        <tbody>
-            <tr>
-                <td><img src= '../Statics/lupa.png' width= 20 height= 20></td>
-                <td><form action='' method=post></td>
-                    <td><input type=search name=buscador></td>
-                </form>
-            </tr>
-        </tbody>
-    </table><br>";
-    echo "
-    <table bgcolor=lightblue>
-    <thead><th>CATEGORÍAS</th></thead>
-        <tbody>
-            <tr><td><form action='Busca.php' method=post></td></tr>
-                <tr><td><input type=submit name=biol value='Ciencias Biológicas y de la salud'></td></tr>
-                <tr><td><input type=submit name=mate value='Ciencias Físico Matemáticas'></td></tr>
-                <tr><td><input type=submit name=sociales value='Ciencias sociales'></td></tr>
-                <tr><td><input type=submit name=lite value='Literatura'></td></tr>
-            </form> 
-        </tbody>
-    </table>";
-    $bio=(isset($_POST["bio"]) && $_POST["bio"]!= "") ?$_POST["bio"]: "No";
-    $mate=(isset($_POST["mate"]) && $_POST["mate"]!= "") ?$_POST["mate"]: "No";
-    $sociales=(isset($_POST["sociales"]) && $_POST["sociales"]!= "") ?$_POST["sociales"]: "No";
-    if($_SESSION['secion']&&$bio!= "No")
+    //Buscar una coincidencia
+    $busca=(isset($_POST["buscador"]) && $_POST["buscador"]!= "") ?$_POST["buscador"]: "No";//variable para que los datos no cambien si no es necesario 
+    if($busca == "No")
     {
-
+        echo "
+        <table>
+        <thead></thead>
+            <tbody>
+                <tr>
+                    <td><img src= '../Statics/lupa.png' width= 20 height= 20></td>
+                    <td><form action='./Busca.php' method=post></td>
+                        <td><input type=search name=buscador></td>
+                        <td><input type=submit name=busca value=VER></td>
+                    </form>
+                </tr>
+            </tbody>
+        </table><br>";
     }
-    elseif($_SESSION['secion']&&$mate!= "No")
+    //coincidencias de busqueda
+    if(isset($_SESSION["inicio"])&&$busca!= "No")
     {
-        
+        echo $busca;
     }
-    elseif($_SESSION['secion']&&$sociales!= "No")
-    {
-        
-    }
+    //redirección si no se ha iniciado seción
     else
     {
-        if(($bio!="No"||$mate!="No"||$sociales!="No")&& !$_SESSION['secion'])
+        if($busca !="No"&& !$_SESSION["inicio"])
         {
             header("location: ./InicioSesion.php");
         }
