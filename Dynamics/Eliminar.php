@@ -8,9 +8,20 @@
         $arreglo=mysqli_fetch_array($res);
         $r="DELETE FROM nombre WHERE NoCuenta_RFC = '$arreglo[1]';"; 
         $res2=mysqli_query($conexion, $r);
-        $s="DELETE FROM usuario WHERE correo = '$_SESSION[correo]';";
+        $s="DELETE FROM usuario WHERE correo='$_SESSION[correo]';";
         $re3=mysqli_query($conexion, $s);
+        if($re3)
+        {
+            echo "Se eliminó correctamente";
+            header("location: ./cerrar.php");
+        }
+        else
+        {
+            echo "No se pudo eliminar el registro";
+            echo '<form action="./Principal.php" method="POST">
+                <input type="submit" value="VOLVER AL INICIO">
+                </form>';
+        }
     }
-
-    header("location: ./Cerrar");
+    
 ?>

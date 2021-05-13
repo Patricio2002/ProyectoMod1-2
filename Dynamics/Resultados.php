@@ -1,6 +1,7 @@
 <?php
     session_start();
     include("./encabezado.php");
+    $conexion=connectdb();
     $array2=array();
     $a=0;
     $i=0;
@@ -10,7 +11,11 @@
     //revisa que se haya ingresado titulo
     if($_POST['titulo']!=NULL){
         $a=1;
+<<<<<<< HEAD
+        $A=("SELECT * FROM libro WHERE titulo LIKE('$_POST[titulo]')");
+=======
         $A="SELECT * FROM libro WHERE titulo LIKE(%'$_POST[titulo]'%)";
+>>>>>>> 669b6e58d0183952f8c101dadcfab74a6f959d7c
         array_push($array2, $A);
     }
     //revisa si se ingresó autor
@@ -78,4 +83,9 @@
     else{
         echo "no se encontraron coincidencias";
     }
+<<<<<<< HEAD
+   $libro=mysqli_fetch_array($res);
+    echo $buscar;
+=======
+>>>>>>> 669b6e58d0183952f8c101dadcfab74a6f959d7c
 ?>
