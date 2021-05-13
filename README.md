@@ -32,3 +32,6 @@
    
 * Los usuarios podrán buscar el título de su libro para facilitar su búsqueda.
 
+### Comentarios adicionales:
+* No lo acabamos pero lo hicimos con amor UwU.
+
