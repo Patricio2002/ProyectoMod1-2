@@ -1,4 +1,5 @@
 <?php
+    //Código base para usar base de datos
     define("DBUSER","root");
     define("DBHOST","localhost");
     define("PASSWORD","");

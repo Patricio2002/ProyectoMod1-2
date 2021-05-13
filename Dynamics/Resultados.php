@@ -1,4 +1,5 @@
 <?php
+    //Inicio
     echo '
     <table bgcolor=lightblue>
     <thead></thead>
@@ -29,5 +30,5 @@
             </tr>
         </tbody>
     </table>
-    <br>';
+    <br>';//Opción de regresar
 ?>
