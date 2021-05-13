@@ -9,9 +9,12 @@
         $IniSes="SELECT * FROM usuario WHERE correo LIKE('$_POST[correo]') AND contraseña LIKE('$_POST[contraseña]');";
         $rev=mysqli_query($conexion, $IniSes);
         $cont= mysqli_num_rows($rev);
-        $_SESSION["correo"]=$_POST["correo"];
         if($cont==1){
+            $_SESSION["correo"]=$_POST["correo"];
             header("location: ./Principal.php");
+        }
+        else{
+            header("location: InicioSesion.php");
         }
         
     }
