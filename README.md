@@ -18,5 +18,5 @@
 ### Guía de configuración del proyecto:
 
 
-###Características del proyecto:
+### Características del proyecto:
    
