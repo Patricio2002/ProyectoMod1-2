@@ -3,9 +3,11 @@
     if(isset($_SESSION["correo"])){
     include("./encabezado.php");
     $conexion=connectdb();
+    //busca los datos del usuario
     $selec="SELECT * FROM usuario JOIN nombre ON usuario.NoCuenta_RFC=nombre.NoCuenta_RFC WHERE correo='$_SESSION[correo]';";  
     $res=mysqli_query($conexion, $selec);
     $arreglo=mysqli_fetch_array($res);
+    //se imprimn los datos del usuario
     echo "<fieldset style=width:400px>";
     echo "<legend><h2>Información de Usuario</h2></legend>";
         echo "<table>";
@@ -26,7 +28,11 @@
             </tr>";
        echo  "</table>";
     echo "</fieldset>";
+    echo '<form action="./Eliminar.php" method="POST">
+        <input type="submit" name="eliminar" value="eliminar cuenta">
+    </form>';
 }
+//redirige en caso de no haber inicio de sesion
 else{
     header("location: InicioSesion.php");
 }
