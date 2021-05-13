@@ -2,7 +2,7 @@
     session_name("Coyo bidi");
     session_start();
     $busca=(isset($_POST["buscador"]) && $_POST["buscador"]!= "") ?$_POST["buscador"]: "No";//variable para que los datos no cambien si no es necesario 
-    if($busca != "No"&& $_SESSION["inicio"])
+    if($busca != "No"&& isset($_SESSION["inicio"]))
     {
         include("./Config.php");
         $conexion= connectdb();
@@ -24,6 +24,8 @@
             {   if($saca1== $buscamin)
                 {
                     echo $saca1;
+                    echo "<br><form action='./Resultados.php' method=post><input type=submit value=MAS...></form>"; 
+                    echo "<br><br>";
                 }
             }
             $s2= "SELECT autor FROM libro";//busca coincidencias en autor
@@ -32,6 +34,8 @@
             {   if($saca2== $buscamin)
                 {
                     echo $saca2;
+                    echo "<br><form action='./Resultados.php' method=post><input type=submit value=MAS...></form>";
+                    echo "<br><br>"; 
                 }
             }
             $s3= "SELECT editorial FROM libro";//busca coincidencias en editorial
@@ -40,6 +44,8 @@
             {   if($saca3== $buscamin)
                 {
                     echo $saca3;
+                    echo "<br><form action='./Resultados.php' method=post><input type=submit value=MAS...></form>"; 
+                    echo "<br><br>";
                 }
             }
             $s4= "SELECT titulo FROM libro";//busca coincidencias en libro
@@ -48,15 +54,18 @@
             {   if($saca4== $buscamin)
                 {
                     echo $saca4;
+                    echo "<br><form action='./Resultados.php' method=post><input type=submit value=MAS...></form>";
+                    echo "<br><br>"; 
                 }
             }
         }
     }
     else//si el usuario no ha iniciado seción
     {
-        if(! $_SESSION["inicio"])
+        if(!isset($_SESSION["inicio"]))
         {
-            header("location: ./InicioSesion.php");
+            echo "<h3>Aún no has iniciado sesión</h3>";
+            echo "<br><br><form action='./InicioSesion.php' method=post><input type=submit value=INICIO></form>"; 
         }
     }
     echo "<br><br><form action=./Principal.php method=post><input type=submit value=VOLVER></form>";  
