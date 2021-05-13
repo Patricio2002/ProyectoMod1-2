@@ -56,7 +56,6 @@
     $buscar=implode(" ", $array2);
     //almacena datos
     $res=mysqli_query($conexion, $buscar);
-<<<<<<< HEAD
     $cont= mysqli_num_rows($res);
     if($cont>0){
         while($row=mysqli_fetch_array($res)){
@@ -66,12 +65,6 @@
     else{
         echo "no se encontraron coincidencias";
     }
-=======
    $libro=mysqli_fetch_array($res);
     echo $buscar;
-<<<<<<< HEAD
-=======
->>>>>>> e9fb99d0e65c01c4e82d09a4927d1b20d1718064
->>>>>>> b734dcd9cc87caf4fc58e3093532a0b7e29b8d5c
->>>>>>> ae0a817a0b59fd03ff626f29d21c3562b9e85a87
 ?>
