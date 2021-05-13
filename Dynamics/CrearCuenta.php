@@ -1,6 +1,6 @@
 <<?php
     include("./Config.php");
-   if($_POST["Crear"==NULL)){
+   if($_POST["Crear"==NULL]){
        header("location: ../Templates/CrearCuenta.html");
    }
    //conecta a base de datos
@@ -13,6 +13,6 @@
    echo $rest;
    echo "<br>";
    $res2=mysqli_query($conexion, $rest);
-   header("location: IniciSesion.php");
+   header("location: ./InicioSesion.php");
    echo "<br>";
 ?>
