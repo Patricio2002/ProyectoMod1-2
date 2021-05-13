@@ -28,7 +28,7 @@
 2. Puede hacer uso de la biblioteca digital libremente.
 
 ### Características del proyecto:
-* La biblioteca digital de la Escuela Nacional Preparatoria no.6; CoyoBidi, cuenta con una interfaz amigable con el usuario. Permite crear cuentas de 3 tipos; lector, bibliotecario y administrador. Si ya se tiene una cuenta, el sistema deja acceder a la biblioteca. El contenido de la biblioteca está filtrado por género y categoría, para facilitar el uso de la plataforma al usuario. El usuario puede buscar del conteido ya existente en la biblioteca, además, el bibliotecario puede subir nuevo contenido a la biblioteca.
+* La biblioteca digital de la Escuela Nacional Preparatoria no.6; CoyoBidi, cuenta con una interfaz amigable con el usuario. Permite crear cuentas de 3 tipos; lector, bibliotecario y administrador. Si ya se tiene una cuenta, el sistema deja acceder a la biblioteca. El contenido de la biblioteca se puede filtrar. El usuario puede buscar del conteido ya existente en la biblioteca, además, el bibliotecario puede subir nuevo contenido a la biblioteca.
    
-* Los usuarios pueden destecar sus libros favoritos.
-* 
+* Los usuarios podrán buscar el título de su libro para facilitar su búsqueda.
+
