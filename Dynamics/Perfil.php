@@ -1,6 +1,7 @@
 <?php
     session_start();
-    include("./Config.php");
+    if(isset($_SESSION["correo"])){
+    include("./encabezado.php");
     $conexion=connectdb();
     $selec="SELECT * FROM usuario JOIN nombre ON usuario.NoCuenta_RFC=nombre.NoCuenta_RFC WHERE correo='$_SESSION[correo]';";  
     $res=mysqli_query($conexion, $selec);
@@ -25,4 +26,8 @@
             </tr>";
        echo  "</table>";
     echo "</fieldset>";
+}
+else{
+    header("location: InicioSesion.php");
+}
 ?>

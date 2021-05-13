@@ -1,5 +1,6 @@
 <?php
      include("./Config.php");
+     include("./Encabezado.php");
      $array=array();
      $conexion=connectdb();
      //revisa que se haya enviado algo
