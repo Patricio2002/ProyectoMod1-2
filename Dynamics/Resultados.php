@@ -1,4 +1,38 @@
 <?php
+<<<<<<< HEAD
+    //Inicio
+    echo '
+    <table bgcolor=lightblue>
+    <thead></thead>
+        <tbody>
+            <tr>
+                <td><img src= "../Statics/Logo.png" width= 100 height= 100></td>
+                <td></td>
+                <h2>
+                    <td>V</td>
+                    <td>I</td>
+                    <td>S</td>
+                    <td>T</td>
+                    <td>A</td>
+                    <td></td>
+                    <td>D</td>
+                    <td>E</td>
+                    <td>T</td>
+                    <td>A</td>
+                    <td>L</td>
+                    <td>L</td>
+                    <td>A</td>
+                    <td>D</td>
+                    <td>A</td>
+                </h2>
+                <td><form action="./Busca.php" method=post></td>
+                    <td><input type=submit name=registro value=VOLVER></td>
+                </form>
+            </tr>
+        </tbody>
+    </table>
+    <br>';//Opción de regresar
+=======
     session_start();
     include("./encabezado.php");
     $array2=array();
@@ -55,6 +89,7 @@
     $buscar=implode(" ", $array2);
     //almacena datos
     $res=mysqli_query($conexion, $buscar);
+<<<<<<< HEAD
     $cont= mysqli_num_rows($res);
     if($cont>0){
         while($row=mysqli_fetch_array($res)){
@@ -64,4 +99,9 @@
     else{
         echo "no se encontraron coincidencias";
     }
+=======
+   $libro=mysqli_fetch_array($res);
+    echo $buscar;
+>>>>>>> e9fb99d0e65c01c4e82d09a4927d1b20d1718064
+>>>>>>> b734dcd9cc87caf4fc58e3093532a0b7e29b8d5c
 ?>
