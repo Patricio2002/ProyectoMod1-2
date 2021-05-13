@@ -80,7 +80,7 @@ CREATE TABLE `genero` (
   `genero` varchar(20) NOT NULL,
   PRIMARY KEY (`id_genero`),
   UNIQUE KEY `genero` (`genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `genero` (
 
 LOCK TABLES `genero` WRITE;
 /*!40000 ALTER TABLE `genero` DISABLE KEYS */;
-INSERT INTO `genero` VALUES (3,'Biologia'),(11,'ciencia Ficcion'),(10,'ciencias politicas'),(5,'Derecho'),(13,'Ensayo'),(8,'Fantasia'),(4,'Fisica'),(7,'Literatura Clasica'),(6,'Medicina'),(12,'Novela'),(2,'Quimica'),(9,'Teologia'),(1,'terror');
+INSERT INTO `genero` VALUES (3,'Biologia'),(5,'Derecho'),(8,'Fantasia'),(4,'Fisica'),(7,'Literatura Clasica'),(6,'Medicina'),(2,'Quimica'),(9,'Teologia'),(1,'terror');
 /*!40000 ALTER TABLE `genero` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `libro` (
   PRIMARY KEY (`id_libro`),
   KEY `categoria` (`categoria`),
   CONSTRAINT `libro_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +172,7 @@ CREATE TABLE `librohasgenero` (
   KEY `id_libro` (`id_libro`),
   CONSTRAINT `librohasgenero_ibfk_1` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`),
   CONSTRAINT `librohasgenero_ibfk_2` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -358,4 +358,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-12 17:35:00
+-- Dump completed on 2021-05-12 20:54:26
