@@ -1,4 +1,4 @@
-<?php
+<<?php
     include("./Config.php");
    if($_POST["Crear"==NULL)){
        header("location: ../Templates/CrearCuenta.html");

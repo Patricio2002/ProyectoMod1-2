@@ -80,7 +80,7 @@ CREATE TABLE `genero` (
   `genero` varchar(20) NOT NULL,
   PRIMARY KEY (`id_genero`),
   UNIQUE KEY `genero` (`genero`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -89,7 +89,7 @@ CREATE TABLE `genero` (
 
 LOCK TABLES `genero` WRITE;
 /*!40000 ALTER TABLE `genero` DISABLE KEYS */;
-INSERT INTO `genero` VALUES (3,'Biologia'),(11,'ciencia Ficcion'),(10,'ciencias politicas'),(5,'Derecho'),(13,'Ensayo'),(8,'Fantasia'),(4,'Fisica'),(7,'Literatura Clasica'),(6,'Medicina'),(12,'Novela'),(2,'Quimica'),(9,'Teologia'),(1,'terror');
+INSERT INTO `genero` VALUES (3,'Biologia'),(5,'Derecho'),(8,'Fantasia'),(4,'Fisica'),(7,'Literatura Clasica'),(6,'Medicina'),(2,'Quimica'),(9,'Teologia'),(1,'terror');
 /*!40000 ALTER TABLE `genero` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -144,7 +144,7 @@ CREATE TABLE `libro` (
   PRIMARY KEY (`id_libro`),
   KEY `categoria` (`categoria`),
   CONSTRAINT `libro_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`id_categoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,6 +153,7 @@ CREATE TABLE `libro` (
 
 LOCK TABLES `libro` WRITE;
 /*!40000 ALTER TABLE `libro` DISABLE KEYS */;
+INSERT INTO `libro` VALUES (7,'Diccionario Jurídico Mexicano. Tomo 8',NULL,'Instituto de Investigaciones Jurídicas',1984,1,'UNAM',1,'Diccionario Jurídico Mexicano. Tomo 8','../libro/Diccionario Jurídico Mexicano - Tomo 8.pdf',1),(8,'Mi lucha ',NULL,'Adolf Hitler',2005,1,'N/A',6,'En estos momentos en que el Instituto de Historia Contemporánea de Múnich publica de nuevo, tras setenta años de prohibición, Mi Lucha, el libro en que Hitler mezcló su autobiografía imaginaria y su programa, Sven Felix Kellerhoff, historiador y periodist','../libro/Mi lucha.pdf',1),(9,'El Señor de los Anillos El Retorno del Rey',NULL,'J.R. R. TOLKIEN',2014,1,'ED PLANETA',6,'Los ejércitos del Señor Oscuro van extendiendo cada vez más su maléfica sombra por la Tierra Media. Hombres, elfos y enanos unen sus fuerzas para presentar batalla a Sauron y sus huestes. Ajenos a estos preparativos, Frodo y Sam siguen adentrándose en el ','../libro/El Señor de los Anillos El Retorno del Rey.pdf',1),(10,'El Señor de los Anillos La Comunidad del Anillo',NULL,'J.R. R. TOLKIEN',2012,1,'ED PLANETA',6,'En la adormecida e idílica comarca, un joven hobbit recibe un encargo: custodiar el anillo único y emprender el viaje para su destrucción en las grietas del destino. Acompañado por un mago, hombres, elfos y enanos, atravesará la tierra media y se internar','../libro/El Señor de los Anillos La Comunidad del Anillo.pdf',1),(11,'El Señor de los Anillos Las dos Torres',NULL,'J.R. R. TOLKIEN',2012,1,'BOOKET',6,'La Compañía se ha disuelto y sus integrantes emprenden caminos separados. Frodo y Sam continúan solos su viaje a lo largo del río Anduin, perseguidos por la sombra misteriosa de un ser extraño que también ambiciona la posesión del Anillo. Mientras, hombre','../libro/El Señor de los Anillos Las dos Torres.pdf',1),(12,'Final Matematicas V Bachillerato',NULL,'Silvia Guadalupe Canabal Caceres',2021,1,'N/A',2,'EXAMEN FINAL DE MATE V DE SILVIA CANABAL','../libro/FINAL_MATEMÁTICASV.pdf',1),(13,'La computación. Turing ',NULL,'Antonio Ruflán Lizana ',2012,1,'National Geographic',1,'Textos de Turing','../libro/Turing.pdf',1),(14,'El anillo del Nibelungo',NULL,'Manuel Vallve',2005,1,'Porrua',6,'Esta obra, que constituye la tetralogía de Wagner, se basa en multitud de leyendas nórdicas, muchas de ellas populares en Islandia y en los países escandinavos y germánicos, pero que, por sí mismas, no forman un cuerpo completo, como aparecen en la obra d','../libro/el-anillo-del-nigelungo.pdf',1),(15,'La teoría de la relatividad. Einstein',NULL,'David Blanco Laserna',2012,1,'National Geographic',1,'Einstein','../libro/Einstein.pdf',1),(16,'La teoría de números. Gauss',NULL,'Antonio Ruflán Lizana ',2012,1,'National Geographic',1,'Gauss','../libro/Gauss.pdf',1),(17,'La radioactividad y los elementos. Marie Curie',NULL,'Adela Muñoz Páez',2012,1,'National Geographic',1,'MADAM CURIE','../libro/Marie Curie.pdf',1),(18,'Manual de Derechos Humanos - Claudio Jesús Santaga',NULL,'Claudio Jesús Santagati',2005,1,'UNAM',1,'Manual de Derechos Humanos - Claudio Jesús Santagati','../libro/Manual de Derechos Humanos - Claudio Jesús Santagat',1),(19,'Edmund Mezger y el Derecho Penal de su Tiempo',NULL,'Francisco Muñoz Conde',2009,1,'tirant lo blanch',1,'Edmund Mezger y el Derecho Penal de su Tiempo','../libro/Edmund Mezger y el Derecho Penal de su Tiempo.pdf',1),(20,'El principio del placer',NULL,'José Emilio Pacheco ',2000,1,'Era',6,'Obras de José Emilio Pacheco','../libro/El principio del placer.pdf',1),(21,'Concepto y fundamento de los derechos humanos y la',NULL,'Neus Torbisco Casals',2012,1,'Universidar Oberta de Catalunya',1,'Concepto y fundamento de los derechos humanos y la democracia','../libro/Concepto y fundamento de los derechos humanos y la ',1),(22,'El teorema de Fermat',NULL,'Luis Fernando Areán álvarez',2012,1,'National Geographic',1,'Fermat','../libro/Fermat.pdf',1),(23,'Embarque1_GlosarioEspanol_Aleman',NULL,'Miguel de Cervantes Saavedra',2013,1,'EDELSA',3,'Diccionario alemán- español','../libro/Embarque1_GlosarioEspanol_Aleman.pdf',1),(24,'matematica_para_todos',NULL,'Adrian Paenza',2012,1,'Sudamericana',1,'Matematicas para todos','../libro/matematica_para_todos.pdf',1),(25,'El Ingenioso Hidalgo Don Quijote de la Mancha',NULL,'Miguel de Cervantes Saavedra',0000,1,'N/A',6,'El Ingenioso Hidalgo Don Quijote de la Mancha','../libro/El Ingenioso Hidalgo Don Quijote de la Mancha.pdf',1),(26,'Tratado de los Delitos y de las Penas - Bonesana, ',NULL,'marqués de Beccaria',2009,1,'UNAM',1,'añada una breve descripcion del libro','../libro/Tratado de los Delitos y de las Penas - Bonesana, C',1);
 /*!40000 ALTER TABLE `libro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -172,7 +173,7 @@ CREATE TABLE `librohasgenero` (
   KEY `id_libro` (`id_libro`),
   CONSTRAINT `librohasgenero_ibfk_1` FOREIGN KEY (`id_genero`) REFERENCES `genero` (`id_genero`),
   CONSTRAINT `librohasgenero_ibfk_2` FOREIGN KEY (`id_libro`) REFERENCES `libro` (`id_libro`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,6 +182,7 @@ CREATE TABLE `librohasgenero` (
 
 LOCK TABLES `librohasgenero` WRITE;
 /*!40000 ALTER TABLE `librohasgenero` DISABLE KEYS */;
+INSERT INTO `librohasgenero` VALUES (1,7,5),(3,9,8),(5,10,8),(7,11,8),(9,12,4),(10,13,4),(11,14,1),(12,14,8),(14,15,4),(16,16,4),(17,17,2),(18,17,3),(19,17,4),(22,19,5),(24,20,7),(28,22,1),(29,22,4),(31,24,4),(32,25,7);
 /*!40000 ALTER TABLE `librohasgenero` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,4 +360,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-12 17:35:00
+-- Dump completed on 2021-05-12 21:59:59
