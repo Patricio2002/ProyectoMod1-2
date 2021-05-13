@@ -1,9 +1,8 @@
 <?php
     include("./Config.php");
     $conexion=connectdb();
-    session_name("Coyo bidi");
     session_start();
-    if(isset($_SESSION["inicio"])){
+    if(isset($_SESSION["correo"])){
         header("location: Principal.php");
     }
     elseif(isset($_POST["InicioSesion"])){
@@ -11,7 +10,11 @@
         $rev=mysqli_query($conexion, $IniSes);
         $cont= mysqli_num_rows($rev);
         if($cont==1){
-            header("location: ./principal.php");
+            $_SESSION["correo"]=$_POST["correo"];
+            header("location: ./Principal.php");
+        }
+        else{
+            header("location: InicioSesion.php");
         }
         
     }
