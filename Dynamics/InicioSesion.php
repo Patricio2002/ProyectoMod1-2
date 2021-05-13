@@ -1,17 +1,17 @@
 <?php
     include("./Config.php");
     $conexion=connectdb();
-    session_name("Coyo bidi");
     session_start();
-    if(isset($_SESSION["inicio"])){
+    if(isset($_SESSION["correo"])){
         header("location: Principal.php");
     }
     elseif(isset($_POST["InicioSesion"])){
         $IniSes="SELECT * FROM usuario WHERE correo LIKE('$_POST[correo]') AND contraseña LIKE('$_POST[contraseña]');";
         $rev=mysqli_query($conexion, $IniSes);
         $cont= mysqli_num_rows($rev);
+        $_SESSION["correo"]=$_POST["correo"];
         if($cont==1){
-            header("location: ./principal.php");
+            header("location: ./Principal.php");
         }
         
     }

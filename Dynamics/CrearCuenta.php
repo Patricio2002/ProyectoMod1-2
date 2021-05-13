@@ -1,15 +1,6 @@
 <?php
     include("./Config.php");
-   if(isset($_POST["Crear"])){
-       $nombre =$_POST["nombre"];
-       $Ap = $_POST["apellidos"];
-       $fecha = $_POST["fecha"];
-       $RFC = $_POST["RFC"];
-       $correo = $_POST["correo"];
-       $contra = $_POST["contraseña"];
-       $tipo= $_POST["tipo"]; 
-   }
-   else{
+   if($_POST["Crear"==NULL)){
        header("location: ../Templates/CrearCuenta.html");
    }
    //conecta a base de datos
@@ -22,11 +13,6 @@
    echo $rest;
    echo "<br>";
    $res2=mysqli_query($conexion, $rest);
-   if($res2){
-       echo "UwU";
-   }
-   else{
-       echo "UnU";
-   }
+   header("location: IniciSesion.php");
    echo "<br>";
 ?>

@@ -62,7 +62,7 @@
             if($rev2=='jpg'||$rev2=='png'||$rev2=='jpeg'){
                 move_uploaded_file($arch2, "../statics/$name");
                 //sube a base de datos conimagen
-                $libro="INSERT INTO libro (titulo, Img_libro, autor, anio, edicion, editorial, categoria, descripcion, libro, mayor18) VALUES ('$_POST[titulo]','../statics/$name', '$_POST[autor]', '$_POST[año]', '$_POST[edicion]', '$_POST[editorial]', '$_POST[categoria]', '$_POST[descripcion]', '../libro/$name', '$_POST[m18]');";
+                $libro="INSERT INTO libro (titulo, Img_libro, autor, anio, edicion, editorial, categoria, descripcion, libro, mayor18) VALUES ('$_POST[titulo]', '../statics/$name', '$_POST[autor]', '$_POST[año]', '$_POST[edicion]', '$_POST[editorial]', '$_POST[categoria]', '$_POST[descripcion]', '../libro/$name', '$_POST[m18]');";
                 $res2=mysqli_query($conexion, $libro);
             }
             else{
