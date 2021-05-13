@@ -68,7 +68,11 @@
             echo "<br>";
             echo " año: $arreglo[4]";
             echo "<br>";
-            echo "<br>";
+            echo "<form action='./Detalles.php' method=POST>";
+                echo '<input type=submit name=ver value="ver mas">';
+                echo "<input type=hidden name=oculto value=$arreglo[0]>";
+            echo "</form>";
+            echo "<br><br>";
         }
     }
     else{
